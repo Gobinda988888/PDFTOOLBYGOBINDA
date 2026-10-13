@@ -1,0 +1,5 @@
+python-telegram-bot==21.10
+fastapi==0.115.12
+uvicorn[standard]==0.34.0
+Pillow==11.1.0
+PyMuPDF==1.25.5

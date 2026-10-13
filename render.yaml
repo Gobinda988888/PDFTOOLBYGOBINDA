@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: image-pdf-studio-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_SECRET
+        sync: false
+      - key: MAX_IMAGES
+        value: "20"
+      - key: MAX_PDF_PAGES
+        value: "20"
+      - key: MAX_DOWNLOAD_MB
+        value: "15"
+      - key: MAX_IMAGE_EDGE
+        value: "2000"
+      - key: JPEG_QUALITY
+        value: "72"
+      - key: PDF_RENDER_DPI
+        value: "110"
+      - key: IMAGE_OUTPUT_QUALITY
+        value: "70"
